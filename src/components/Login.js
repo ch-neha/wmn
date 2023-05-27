@@ -1,9 +1,7 @@
-import React from 'react'
-
 function Login() {
-  return (
-    <div className='display-3'>Hellooo</div>
-  )
+    return (
+        <div>Home</div>
+    )
 }
 
-export default Login
+export default Login;
