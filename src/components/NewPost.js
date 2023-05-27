@@ -20,8 +20,9 @@ function NewPost() {
     const [eventDescription,setEventDescription ] = useState('');
     const [eventLocation, setEventLocation] = useState('');
     const [eventLink, setEventLink] = useState('');
-    const [eventPoster, setEventPoster] = useState('');
+    const [eventPoster, setEventPoster] = useState(null);
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [eventObj, setEventObj] = useState(['']);
    
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -34,8 +35,10 @@ function NewPost() {
         console.log(eventLocation);
         console.log(eventDescription);
         console.log(eventLink);
+        console.log(eventPoster);
 
         // Reset the form fields after submission
+
         setEventTitle('');
         setOrgName('');
         setEventStartDate('');
@@ -43,7 +46,9 @@ function NewPost() {
         setEventLocation('');
         setEventDescription('');
         setEventLink('');
+        setEventPoster(null);
         setIsSubmitted(false);
+        setEventObj(null);
 
         //alert message to display successful submission
         setIsSubmitted(true);
@@ -54,6 +59,15 @@ function NewPost() {
         console.log(setIsSubmitted);
     }
 
+    useEffect(()=>{
+        const object = [eventTitle, orgName, eventStartDate, eventEndDate, eventLocation, eventDescription, eventLink, eventPoster];
+        console.log(object);
+
+        setEventObj(object);
+        console.log(eventObj);
+
+        },eventObj)
+        
 
     
   return (
