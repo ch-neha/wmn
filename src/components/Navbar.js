@@ -1,5 +1,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
+// import { signInWithGoogle, auth, signOut } from "../services/auth";
+// import { useAuthState } from "react-firebase-hooks/auth";
+// import { checkIfExistingUSerElseAddUser } from "../services/user";
 import { NavLink, withRouter } from "react-router-dom";
 
 function Navbar() {
@@ -61,20 +64,20 @@ function Navbar() {
               <NavLink
                 className="nav-link"
                 activeClassName="active text-primary"
+                to="/Register"
+              >
+                Register
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                className="nav-link"
+                activeClassName="active text-primary"
                 to="/Login"
               >
                 Login
               </NavLink>
-            </li>
-            {/* <li className="nav-item">
-              <NavLink
-                className="nav-link"
-                activeClassName="active text-primary"
-                to="/rewards"
-              >
-                Rewards
-              </NavLink>
-            </li> */}
+            </li> 
             {/* <li
              className="nav-item mx-2">
               {user ? (
