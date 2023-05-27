@@ -42,7 +42,7 @@ export default function Home() {
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            R
+            T
           </Avatar>
         }
         action={
