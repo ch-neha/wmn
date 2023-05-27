@@ -8,6 +8,7 @@ import Users from './components/Users';
 import Login from './components/Login';
 import NewPost from './components/NewPost';
 import Register from './components/Register';
+import ChatApp from './components/ChatApp';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route path='/Post' element={<Post />}></Route>
         <Route path='/CreatePost' element={<NewPost />}></Route>
         <Route path='/Register' element={<Register/>}></Route>
+        <Route path='/Chat' element={<ChatApp></ChatApp>}></Route>
       </Routes>
     </div>
   );
