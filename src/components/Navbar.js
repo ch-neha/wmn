@@ -52,18 +52,18 @@ function Navbar() {
               <NavLink
                 className="nav-link"
                 activeClassName="active text-primary"
-                to="/Post"
+                to="/addPost"
               >
-                Add Event
+              Add Event
               </NavLink>
             </li>
             <li className="nav-item">
               <NavLink
                 className="nav-link"
                 activeClassName="active text-primary"
-                to="/CreatePost"
+                to="/Register"
               >
-              Create Event
+                Register
               </NavLink>
             </li>
             <li className="nav-item">

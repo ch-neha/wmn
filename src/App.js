@@ -21,7 +21,7 @@ function App() {
         <Route path='/Profile' element={<Profile />}></Route>
         <Route path='/Users' element={<Users />}></Route>
         <Route path='/Post' element={<Post />}></Route>
-        <Route path='/CreatePost' element={<NewPost />}></Route>
+        <Route path='/addPost' element={<NewPost />}></Route>
         <Route path='/Register' element={<Register/>}></Route>
       </Routes>
     </div>
