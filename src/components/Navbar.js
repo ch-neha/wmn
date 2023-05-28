@@ -43,15 +43,6 @@ function Navbar() {
               <NavLink
                 className="nav-link"
                 activeClassName="active text-primary"
-                to="/Profile"
-              >
-                Profile
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink
-                className="nav-link"
-                activeClassName="active text-primary"
                 to="/addPost"
               >
               Add Event
@@ -73,6 +64,15 @@ function Navbar() {
                 to="/Login"
               >
                 Login
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                className="nav-link"
+                activeClassName="active text-primary"
+                to="/Profile"
+              >
+                Profile
               </NavLink>
             </li>
             {/* <li className="nav-item">

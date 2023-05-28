@@ -14,9 +14,11 @@ import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import EqualizerIcon from '@mui/icons-material/Equalizer';
 import AdjustIcon from '@mui/icons-material/Adjust';
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
+import {Link} from 'react-router-dom';
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -78,8 +80,11 @@ export default function Home() {
           <InstagramIcon sx={{ m: 0.5 }}></InstagramIcon>
           <FacebookRoundedIcon sx={{ m: 0.5 }}></FacebookRoundedIcon>
         </IconButton>
-        <IconButton style={{ alignContent: "right"}}>
-        </IconButton>
+
+        <Link to={`/stats/turingCup`}>
+          <EqualizerIcon />
+        </Link>
+
         <ExpandMore
           expand={expanded}
           onClick={handleExpandClick}

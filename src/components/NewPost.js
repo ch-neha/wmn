@@ -83,14 +83,14 @@ function NewPost() {
         marginLeft: "10rem",
         backgroundColor: "#ffffff",
         padding: "2rem",
-        paddingRight: "16rem"
+        paddingRight: "16rem",
         }}
         
       >
         <Typography component="h1" variant="h5">
           Event Details
         </Typography>
-        <Box component="form" noValidate onSubmit={handleSubmit}>
+        <Box component="form" noValidate onSubmit={handleSubmit} sx={{paddingTop: 3}}>
         <TextField
             label="Event Title"
             type="text"

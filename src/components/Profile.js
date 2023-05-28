@@ -17,7 +17,7 @@ import {
   MDBListGroupItem
 } from 'mdb-react-ui-kit';
 
-
+import {Link} from 'react-router-dom';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import LinkIcon from '@mui/icons-material/Link';
@@ -39,6 +39,7 @@ import AdjustIcon from '@mui/icons-material/Adjust';
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { styled } from "@mui/material/styles";
+import EqualizerIcon from '@mui/icons-material/Equalizer';
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -198,8 +199,11 @@ export default function Profile() {
           <InstagramIcon sx={{ m: 0.5 }}></InstagramIcon>
           <FacebookRoundedIcon sx={{ m: 0.5 }}></FacebookRoundedIcon>
         </IconButton>
-        <IconButton style={{ alignContent: "right"}}>
-        </IconButton>
+        <Link to={`/stats/turingCup`}>
+            <EqualizerIcon />
+        </Link>
+
+
         <ExpandMore
           expand={expanded}
           onClick={handleExpandClick}
