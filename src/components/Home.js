@@ -19,6 +19,8 @@ import AdjustIcon from '@mui/icons-material/Adjust';
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import {Link} from 'react-router-dom';
+import Tooltip from '@mui/material/Tooltip';
+import { makeStyles } from '@material-ui/core/styles';
 import {
   MDBCol,
   MDBContainer,
@@ -48,6 +50,16 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
+const useStyles = makeStyles((theme) => ({
+  link:{
+    color: "black",
+    textDecoration: 'none',
+    fontWeight: "bold",
+    
+  }
+  
+}))
+
 export default function Home() {
   const [expanded, setExpanded] = React.useState(false);
 
@@ -55,8 +67,14 @@ export default function Home() {
     setExpanded(!expanded);
   };
 
+  const classes = useStyles();
+
   return (
-    <div className="d-flex justify-content-center mt-5 mb-5">   
+    <div> 
+     <Typography variant="h3" className="d-flex justify-content-center mt-3" sx={{fontSize: "40px", fontWeight: "bold"}}>
+        Event It!
+    </Typography> 
+    <p className="d-flex justify-content-center mb-2">Connecting Communities, Amplifying Events...</p> 
     <MDBContainer className="py-5">
     <MDBRow>
     <MDBCol lg="3">
@@ -65,28 +83,31 @@ export default function Home() {
         
         <MDBListGroup flush className="rounded-3">
           <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
-            <Link to={`/Register`}>LeaderBoard</Link>  
+            <Link to={`/Register`} className={classes.link}>LeaderBoard</Link>  
             <MDBCardText></MDBCardText>
           </MDBListGroupItem>
           <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
-            <Link to={`/Register`}>Statistics</Link>  
+            <Link to={`/Register`} className={classes.link}>Statistics</Link>  
           </MDBListGroupItem>
           <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
-            <Link to={`/Register`}>Sponsers</Link>  
+            <Link to={`/Register`} className={classes.link}>Sponsers</Link>  
           </MDBListGroupItem>
           <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
-            <Link to={`/Register`} sx={{color:"dark"}}>About</Link>  
+            <Link to={`/Register`} className={classes.link} >About</Link>  
           </MDBListGroupItem>
           <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
-            <Link to={`/Register`}>Settings</Link>  
+            <Link to={`/Register`} className={classes.link} >FAQ</Link>  
+          </MDBListGroupItem>
+          <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
+            <Link to={`/Register`} className={classes.link}>Settings</Link>  
           </MDBListGroupItem>
         </MDBListGroup>
       </MDBCardBody>
      </MDBCard>
-    </MDBCol> 
-    <MDBCol lg="1"></MDBCol>
-    <MDBCol lg="8">
-      <Card sx={{ width: "80%" }}>
+    </MDBCol>
+
+    <MDBCol lg="6">
+      <Card sx={{ width: "100%" }}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -127,9 +148,17 @@ export default function Home() {
           <FacebookRoundedIcon sx={{ m: 0.5 }}></FacebookRoundedIcon>
         </IconButton>
 
-        <Link to={`/stats/turingCup`}>
-          <EqualizerIcon />
-        </Link>
+        
+        <Tooltip
+          placement="top"
+          title="Stats"
+          arrow
+          sx={{p:1}}
+         >
+          <Link to={`/stats/turingCup`}  >
+            <EqualizerIcon sx={{mb:0.1}}></EqualizerIcon>
+          </Link>
+        </Tooltip>
 
         <ExpandMore
           expand={expanded}
@@ -176,7 +205,52 @@ export default function Home() {
       </Collapse>
     </Card>
     </MDBCol>
+    <MDBCol lg="3">
+    <MDBCard className="mb-4 mb-lg-0">
+    <Typography variant="h3" className="d-flex justify-content-center mt-3 mb-2" sx={{fontSize: "20px", fontWeight: "bold"}}>
+        Top Shares
+    </Typography> 
+      <MDBCardBody className="p-0">
+        
+        <MDBListGroup flush className="rounded-3">
+          <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
+             1. Turing Hut, Hyderabad 
+            <MDBCardText>2000</MDBCardText>
+          </MDBListGroupItem>
+          <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
+             2. CSI, New Delhi
+             <MDBCardText>1000</MDBCardText>
+          </MDBListGroupItem>
+          <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
+             3. ACM, Gujarat
+             <MDBCardText>500</MDBCardText>
+          </MDBListGroupItem>
+        </MDBListGroup>
+      </MDBCardBody>
+     </MDBCard>
+    </MDBCol>
     </MDBRow>
+    {/* <MDBCol lg="2">
+    <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <button type="button" class="btn btn-primary">Button</button>
+        </div>
+      </div>
+    </MDBCol>
+    
+    <MDBRow>
+      <MDBCol lg="2">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <button type="button" class="btn btn-primary">Button</button>
+        </div>
+      </div>
+      </MDBCol>
+    </MDBRow> */}
     </MDBContainer>
     </div>
   );
