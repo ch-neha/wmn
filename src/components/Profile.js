@@ -40,6 +40,8 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { styled } from "@mui/material/styles";
 import EqualizerIcon from '@mui/icons-material/Equalizer';
+import EditIcon from '@mui/icons-material/Edit';
+import ChatIcon from '@mui/icons-material/Chat';
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -67,17 +69,20 @@ export default function Profile() {
             <MDBCard className="mb-4">
               <MDBCardBody className="text-center">
                 <MDBCardImage
-                  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
+                  src="https://turinghut.org/static/9384c958bbd95db9f010ee70a3bdaee1/30cdc/turinghut_logo.png"
                   alt="avatar"
                   className="rounded-circle"
                   style={{ width: '150px' }}
                   fluid />
-                <h2 className='p-1'>John Smith</h2>  
-                <p className="text-muted mb-1">Full Stack Developer</p>
-                <p className="text-muted mb-4">Bay Area, San Francisco, CA</p>
+                <h2 className='p-1'>Turing Hut</h2>  
+                <p className="text-muted mb-1">Programming Club</p>
+                <p className="text-muted mb-4">VNR VJIET, Hyderabad</p>
                 <div className="d-flex justify-content-center mb-2">
-                  <MDBBtn>Follow</MDBBtn>
-                  <MDBBtn outline className="ms-1">Message</MDBBtn>
+                <MDBBtn outline disabled color="secondary">Message <ChatIcon ></ChatIcon></MDBBtn>
+                <Link to={`/Register`}>
+                   <MDBBtn className='ms-2' color="dark">Edit <EditIcon sx={{ fontSize: 17,mb:0.5 }}></EditIcon></MDBBtn>
+                </Link>
+                 
                 </div>
               </MDBCardBody>
             </MDBCard>
@@ -87,23 +92,23 @@ export default function Profile() {
                 <MDBListGroup flush className="rounded-3">
                   <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
                     <LinkIcon/>
-                    <MDBCardText>https://mdbootstrap.com</MDBCardText>
+                    <MDBCardText>https://turinghut.org</MDBCardText>
                   </MDBListGroupItem>
                   <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
                     <FacebookIcon/>
-                    <MDBCardText>mdbootstrap</MDBCardText>
+                    <MDBCardText>turing_hut</MDBCardText>
                   </MDBListGroupItem>
                   <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
                     <TwitterIcon/> 
-                    <MDBCardText>@mdbootstrap</MDBCardText>
+                    <MDBCardText>@TuringHut</MDBCardText>
                   </MDBListGroupItem>
                   <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
                     <InstagramIcon/>
-                    <MDBCardText>mdbootstrap</MDBCardText>
+                    <MDBCardText>@turing.hut</MDBCardText>
                   </MDBListGroupItem>
                   <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
                     <LinkedInIcon/>
-                    <MDBCardText>mdbootstrap</MDBCardText>
+                    <MDBCardText>TuringHut</MDBCardText>
                   </MDBListGroupItem>
                 </MDBListGroup>
               </MDBCardBody>
@@ -117,7 +122,7 @@ export default function Profile() {
                     <MDBCardText>Full Name</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="text-muted">Johnatan Smith</MDBCardText>
+                    <MDBCardText className="text-muted">Turing Hut</MDBCardText>
                   </MDBCol>
                 </MDBRow>
                 <hr />
@@ -126,7 +131,7 @@ export default function Profile() {
                     <MDBCardText>Email</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="text-muted">example@example.com</MDBCardText>
+                    <MDBCardText className="text-muted">turinghut@vnrvjiet.inventore</MDBCardText>
                   </MDBCol>
                 </MDBRow>
                 <hr />
@@ -153,7 +158,7 @@ export default function Profile() {
                     <MDBCardText>Address</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="text-muted">Bay Area, San Francisco, CA</MDBCardText>
+                    <MDBCardText className="text-muted">VNR VJIET, Bachupally, Hyderabad</MDBCardText>
                   </MDBCol>
                 </MDBRow>
               </MDBCardBody>

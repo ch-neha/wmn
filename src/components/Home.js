@@ -19,6 +19,23 @@ import AdjustIcon from '@mui/icons-material/Adjust';
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import {Link} from 'react-router-dom';
+import {
+  MDBCol,
+  MDBContainer,
+  MDBRow,
+  MDBCard,
+  MDBCardText,
+  MDBCardBody,
+  MDBCardImage,
+  MDBBtn,
+  MDBBreadcrumb,
+  MDBBreadcrumbItem,
+  MDBProgress,
+  MDBProgressBar,
+  MDBIcon,
+  MDBListGroup,
+  MDBListGroupItem
+} from 'mdb-react-ui-kit';
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -39,8 +56,37 @@ export default function Home() {
   };
 
   return (
-    <div className="d-flex justify-content-center mt-5 mb-5">    
-    <Card sx={{ width: "40%" }}>
+    <div className="d-flex justify-content-center mt-5 mb-5">   
+    <MDBContainer className="py-5">
+    <MDBRow>
+    <MDBCol lg="3">
+    <MDBCard className="mb-4 mb-lg-0">
+      <MDBCardBody className="p-0">
+        
+        <MDBListGroup flush className="rounded-3">
+          <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
+            <Link to={`/Register`}>LeaderBoard</Link>  
+            <MDBCardText></MDBCardText>
+          </MDBListGroupItem>
+          <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
+            <Link to={`/Register`}>Statistics</Link>  
+          </MDBListGroupItem>
+          <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
+            <Link to={`/Register`}>Sponsers</Link>  
+          </MDBListGroupItem>
+          <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
+            <Link to={`/Register`} sx={{color:"dark"}}>About</Link>  
+          </MDBListGroupItem>
+          <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
+            <Link to={`/Register`}>Settings</Link>  
+          </MDBListGroupItem>
+        </MDBListGroup>
+      </MDBCardBody>
+     </MDBCard>
+    </MDBCol> 
+    <MDBCol lg="1"></MDBCol>
+    <MDBCol lg="8">
+      <Card sx={{ width: "80%" }}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -129,6 +175,9 @@ export default function Home() {
         </CardContent>
       </Collapse>
     </Card>
+    </MDBCol>
+    </MDBRow>
+    </MDBContainer>
     </div>
   );
 }

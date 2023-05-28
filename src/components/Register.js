@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
@@ -12,38 +12,46 @@ import {
 
 export default function Register() {
 
+    const [orgDesc,setOrgDesc] = useState('');
     const [orgName, setOrgName] = useState('');
-    const [profilePic, setProfilePic] = useState(null);
-    const [email, setEmail] = useState('');
-    const [mobile,setMobile ] = useState('');
-    const [address, setAddress] = useState('');
-    const [orgDescription, setOrgDescription] = useState('');
+    const [orgLocation, setOrgLocation] = useState('');
+    const [profilePhoto, setProfilePhoto] = useState(null);
     const [isSubmitted, setIsSubmitted] = useState(false);
-    const [orgObj, setOrgObj] = useState([]);
-
+    const [eventObj, setEventObj] = useState(['']);
+    const [email, setEmail] = useState('');
+    const [phoneNo, setPhoneNo] = useState('');
+   
     const handleSubmit = (e) => {
         e.preventDefault();
 
         //use the values for apis
-        console.log(orgName);
-        console.log(profilePic);
-        console.log(email);
-        console.log(mobile);
-        console.log(address);
-        console.log(orgDescription);
-    
+        // console.log(eventTitle);
+        // console.log(orgName);
+        // console.log(eventStartDate);
+        // console.log(eventEndDate);
+        // console.log(eventLocation);
+        // console.log(eventDescription);
+        // console.log(eventLink);
+        // console.log(eventPoster);
 
         // Reset the form fields after submission
 
-       
-        setOrgName('');
-        setProfilePic(null);
-        setEmail('');
-        setMobile('');
-        setAddress('');
-        setOrgDescription('');
-        setIsSubmitted(false);
-        setOrgObj(null);
+        const object = [orgName, orgDesc , orgLocation, phoneNo, email, profilePhoto];
+        console.log(object);
+
+        setEventObj(object);
+        console.log(eventObj);
+
+        // setOrgDesc('');
+        // setOrgName('');
+        // setOrgLocation('');
+        // setEmail('');
+        // setPhoneNo('');
+        // setProfilePhoto(null);
+        // setIsSubmitted(false);
+        // setEventObj(null);
+
+        // document.getElementById("regform").reset();
 
         //alert message to display successful submission
         setIsSubmitted(true);
@@ -51,40 +59,40 @@ export default function Register() {
             setIsSubmitted(false)
         }, 2000);
 
-        console.log(setIsSubmitted);
+        console.log(eventObj);
+
+        console.log("setIsSubmitted");
     }
 
     useEffect(()=>{
-        const object1 = [orgName, profilePic, email, mobile, address, orgDescription];
-        console.log(object1);
-        setOrgObj(object1);
-        console.log(orgObj);
-
-        },orgObj)
         
+
+    },eventObj)
 
     return (
-        <>
-    <Container sx={{ width: "200" }}>
-      <Box
-        sx={{
-        width: "75%", 
-        display: "flex",
-        flexDirection: "column",
-        boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.2)",
-        margin: "1rem",
-        marginLeft: "10rem",
-        backgroundColor: "#ffffff",
-        padding: "2rem",
-        paddingRight: "16rem"
-        }}
+        <div>
+            <Container sx={{ width: "200" }}>
+            <Box
+                sx={{
+                width: "75%", 
+                display: "flex",
+                flexDirection: "column",
+                boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.2)",
+                margin: "1rem",
+                marginLeft: "10rem",
+                backgroundColor: "#ffffff",
+                padding: "2rem",
+                paddingRight: "16rem"
+                }}
         
-      >
-        <Typography component="h1" variant="h5">
-          Register as an Organizer!
-        </Typography>
-        <Box component="form" noValidate onSubmit={handleSubmit} sx={{paddingTop: 3}}>
-        <TextField
+             >
+            <Typography component="h1" variant="h5">
+            Profile Details!
+            </Typography>
+           <Box component="form" id='regform' noValidate onSubmit={handleSubmit}>
+        
+            <br/>
+          <TextField
             label="Organization Name"
             type="text"
             value={orgName}
@@ -98,35 +106,21 @@ export default function Register() {
           />
           <br/><br/>
           <TextField
-            label="Email ID"
+            label="Organisation Description"
             type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={orgDesc}
+            onChange={(e) => setOrgDesc(e.target.value)}
+            fullWidth
             InputLabelProps={{
                 shrink: true
             }}
-            fullWidth
             required
-           />
-            <br/><br/>
-           <TextField
-                label="Mobile Number"
-                type="text"
-                value={mobile}
-                onChange={(e) => setMobile(e.target.value)}
-                InputLabelProps={{
-                    shrink: true
-                }}
-                required
-                fullWidth
-                margin="normal"
-            />
-          <br/><br/>
+          />
           <TextField
-            label="Location"
+            label="Address"
             type="text"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
+            value={orgLocation}
+            onChange={(e) => setOrgLocation(e.target.value)}
             InputLabelProps={{
                 shrink: true
             }}
@@ -136,38 +130,49 @@ export default function Register() {
           />
           <br/><br/>
           <TextField
-            label="About Organization"
+            label="Email ID:"
             type="text"
-            value={orgDescription}
-            onChange={(e) => setOrgDescription(e.target.value)}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             fullWidth
             InputLabelProps={{
                 shrink: true
             }}
             required
           />
-           <br/><br/>
-        
+          <br/><br/>
+          
+          <TextField
+            label="Contact Number:"
+            type="number"
+            value={phoneNo}
+            onChange={(e) => setPhoneNo(e.target.value)}
+            fullWidth
+            InputLabelProps={{
+                shrink: true
+            }}
+            required
+          />
+          <br/><br/>
           <FormControl margin="normal" fullWidth>
-           <FormLabel required>Upload Profile Picture</FormLabel>
+           <FormLabel required>Upload Profile Photo</FormLabel>
             <Input 
                type="file" 
                required 
-               value={profilePic}
-               onChange={(e) => setProfilePic(e.target.value)}
+               value={profilePhoto}
+               onChange={(e) => setProfilePhoto(e.target.value)}
                />
           </FormControl>
-         
         
           <div className='mt-2'>
             {isSubmitted && (
                 <div className="alert alert-success mt-3" role="alert">
-                Updated profile successfully!
+                Event submitted successfully!
                 </div>
             )}
         </div>
           <Button type="submit" variant="contained" color="primary" className='mt-3'
-            disabled={!orgName || !profilePic || !email || !mobile || !orgDescription || !address}
+            disabled={!orgDesc || !orgName || !phoneNo || !email || !orgLocation || !profilePhoto }
             >
             Submit
           </Button>
@@ -175,7 +180,7 @@ export default function Register() {
         </Box>
       </Box>
     </Container>
+        </div>
            
-    </>
     );
 }

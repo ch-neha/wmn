@@ -48,7 +48,7 @@ function Navbar() {
               Add Event
               </NavLink>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <NavLink
                 className="nav-link"
                 activeClassName="active text-primary"
@@ -56,7 +56,7 @@ function Navbar() {
               >
                 Register
               </NavLink>
-            </li>
+            </li> */}
             <li className="nav-item">
               <NavLink
                 className="nav-link"
@@ -75,6 +75,15 @@ function Navbar() {
                 Profile
               </NavLink>
             </li>
+            {/* <li className="nav-item">
+              <NavLink
+                className="nav-link"
+                activeClassName="active text-primary"
+                to="/Chat"
+              >
+                Chat
+              </NavLink>
+            </li> */}
             {/* <li className="nav-item">
               <NavLink
                 className="nav-link"
